@@ -104,7 +104,7 @@ def main():
         # Beautify and show figure
         plt.subplots_adjust(wspace=0.05, hspace=0.05)
         manager = plt.get_current_fig_manager()
-        manager.resize(*manager.window.maxsize())
+        # manager.resize(*manager.window.maxsize())
         plt.show()
 
 
