@@ -199,31 +199,3 @@ class ClevrDataset(Dataset):
     #   image_seq = torch.from_numpy(image_seq[0,:,:,:]).permute(2,0,1)
     # return {'input' : self.transform(img)}
     return {'input' : self.transform(im)}
-
-    # def __getitem__(self, idx):
-    #     # --- Load image ---
-    #     # File name example:
-    #     # data_dir + /recordings/env_ccs-hard-h=2-vcom=0-vpsf=0-v=60/
-    #     # rgb-w=5-f=2-l=1-c=unique-cam_7-mono-0.png
-    #     file = self.filenames[idx]
-    #     img = Image.open(file)
-    #     output = {'input': self.transform(img)}
-
-    #     # --- Load instances ---
-    #     if self.load_instances:
-    #         file_split = file.split('/')
-    #         cam = file_split[4].split('-')[5][4:]
-    #         map_path = os.path.join(
-    #             self.data_dir, 'iseg', file_split[3],
-    #             'iseg-w=0-f=0-l=0-c=original-cam_' + cam + '-mono-0.map')
-    #         masks = load_segmap_as_matrix(map_path)
-    #         masks = np.expand_dims(masks, 0)
-    #         masks = np_img_centre_crop(masks, CENTRE_CROP)
-    #         masks = torch.FloatTensor(masks)
-    #         if self.img_size != masks.shape[2]:
-    #             masks = masks.unsqueeze(0)
-    #             masks = F.interpolate(masks, size=self.img_size)
-    #             masks = masks.squeeze(0)
-    #         output['instances'] = masks.type(torch.LongTensor)
-
-    #     return output
