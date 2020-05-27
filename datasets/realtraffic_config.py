@@ -93,7 +93,6 @@ class CarsRealTraffic(Dataset):
   """Data Handler that loads cars data."""
 
   def __init__(self, data_root, train=True, seq_len=30, image_size=64, **kwargs):
-    # This is TODO, we want to see what happens here
     self.root_dir = data_root 
     self.image_size = image_size
 
@@ -131,5 +130,4 @@ class CarsRealTraffic(Dataset):
     im = (np.asarray(Image.open(images[rnd_idx]).convert('RGB')\
         .resize((self.image_size,self.image_size),PIL.Image.LANCZOS))\
         .reshape(self.image_size, self.image_size, 3))
-    
     return {'input' : self.transform(im)}
